@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
+            $table->string('nombres');
+            $table->string('apellidos');
+            $table->string('edad', 3);
+            $table->string('sexo', 9);
+            $table->string('dni', 8)->unique();
+            $table->string('tipo_sangre', 3);
+            $table->string('telefono', 15);
+            $table->string('correo');
+            $table->string('direccion');
             $table->timestamps();
         });
     }

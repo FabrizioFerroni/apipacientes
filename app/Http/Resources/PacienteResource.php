@@ -3,7 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Str;
+// use Str;
+use Illuminate\Support\Str;
 
 class PacienteResource extends JsonResource
 {

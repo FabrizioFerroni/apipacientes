@@ -13,7 +13,7 @@ class PacienteController extends Controller
 {
     public function index()
     {
-        return PacienteResource::collection(Paciente::orderBy('id', 'DESC')->get());
+        return PacienteResource::collection(Paciente::orderBy('id', 'DESC')->paginate(3));
     }
 
     public function store(GuardarPacienteRequest $request)
@@ -34,8 +34,7 @@ class PacienteController extends Controller
 
     public function destroy(Paciente $paciente)
     {
-            $paciente->delete();
-            return (new PacienteResource($paciente))->additional(['mensaje' => 'Paciente eliminado correctamente en la BD']);
+        $paciente->delete();
+        return (new PacienteResource($paciente))->additional(['mensaje' => 'Paciente eliminado correctamente en la BD']);
     }
-
-    }
+}
